@@ -14,9 +14,26 @@ def add_tree(parent_frame):
     tree.heading('status', text='Status')
     tree.heading('task', text='Task description')
 
+    # Set geometry and add to parent frame
     tree.column('status', width=80, anchor=tk.W)
     tree.column('task', width=320, anchor=tk.E)
     tree.grid(row=0, column=0, sticky='nsew')
+
+
+def add_input(parent_frame):
+    # FIXME: width and height are hardcoded - change to dynamic later
+    input_form = tk.Frame(parent_frame, height=100, width=400)
+
+    placeholder = tk.Label(input_form, text="New ToDo")
+    placeholder.grid(row=0, column=0, sticky='w')
+
+    input_field = tk.Entry(input_form)
+    input_field.grid(row=0, column=2, sticky='w')
+
+    input_button = tk.Button(input_form, text='accept')
+    input_button.grid(row=0, column=2, sticky='e')
+
+    input_form.grid(row=1, column=0, sticky='s')
 
 
 def main():
@@ -24,7 +41,7 @@ def main():
     root.title("Git er dun ya lazy shit")
 
     window_width = 400
-    window_height = 200
+    window_height = 255
 
     # Get screen dimension
     screen_width = root.winfo_screenwidth()
@@ -40,7 +57,11 @@ def main():
     # Ensure window is not resizable, and starts in windowed mode
     root.resizable(False, False)
 
+    # add the task list to the frame
     add_tree(root)
+
+    # Add the task adding form to the frame
+    add_input(root)
 
     root.mainloop()
 
