@@ -16,7 +16,7 @@ def add_tree(parent_frame):
 
     # Set geometry and add to parent frame
     tree.column('status', width=80, anchor=tk.W)
-    tree.column('task', width=320, anchor=tk.E)
+    tree.column('task', width=320, anchor=tk.W)
     tree.grid(row=0, column=0, sticky='nsew')
 
 
