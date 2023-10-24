@@ -4,6 +4,21 @@ import tkinter as tk
 from tkinter import ttk
 
 
+def add_tree(parent_frame):
+    # Use TreeView to display all todo items
+    columns = ('status', 'task')
+
+    # FIXME: change 'tree headings' to 'headings'
+    tree = ttk.Treeview(parent_frame, columns=columns, show='headings')
+
+    tree.heading('status', text='Status')
+    tree.heading('task', text='Task description')
+
+    tree.column('status', width=80, anchor=tk.W)
+    tree.column('task', width=320, anchor=tk.E)
+    tree.grid(row=0, column=0, sticky='nsew')
+
+
 def main():
     root = tk.Tk()
     root.title("Git er dun ya lazy shit")
@@ -24,6 +39,8 @@ def main():
 
     # Ensure window is not resizable, and starts in windowed mode
     root.resizable(False, False)
+
+    add_tree(root)
 
     root.mainloop()
 
