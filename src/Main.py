@@ -40,7 +40,7 @@ def add_input(parent_frame, tree_frame):
     # Add dropdown selection for task type
     task_types = ["TODO", "DONE", "URGE"]
     input_type = ttk.Combobox(input_form, values=task_types)
-    input_type.set("Task type")
+    input_type.set("TODO")
     input_type.grid(row=0, column=2)
 
     # Add button to accept new tasks and add them to the Treeview
